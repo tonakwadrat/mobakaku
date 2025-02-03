@@ -546,10 +546,10 @@
             </div>
         
         </div>
-        <div class="last-update">
+       <div class="last-update">
             <div>
                 <div class="last-update-text">Ostatnia aktualizacja</div>
-                <div class="last-update-date">20.12.2024</div>
+                <div class="last-update-date" id="lastUpdate"></div>
             </div>
             <button id="aktualizuj">Aktualizuj</button>
         </div>
@@ -562,6 +562,16 @@
     </div>
 
     <script>
+        function updateDate() {
+        let today = new Date();
+        let formattedDate = today.toLocaleDateString("pl-PL");
+        document.getElementById("lastUpdate").textContent = formattedDate;
+    }
+    
+    document.getElementById("aktualizuj").addEventListener("click", updateDate);
+    
+    window.onload = updateDate;
+        
           function toggleCustomImage() {
             const button = document.getElementById('customButton');
             const imageContainer = document.getElementById('customImageContainer');
