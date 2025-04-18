@@ -441,7 +441,11 @@
             height: auto;
             
         }
-        
+        body {
+        overflow: auto;
+        scrollbar-width: none; /* Firefox */
+        }
+
     </style>
 </head>
 <body>
@@ -562,6 +566,18 @@
     </div>
 
     <script>
+        document.getElementById("aktualizuj").addEventListener("click", function() {
+    // Przechowujemy aktualny adres URL (stronę, z której pochodzi użytkownik)
+    var currentUrl = window.location.href;
+
+    // Przekierowanie na inną stronę
+    window.location.href = "Aktualizacja.html";
+
+    // Po 5 sekundach wracamy na stronę źródłową
+    setTimeout(function() {
+      window.location.href = currentUrl; // Powrót na stronę, z której pochodzi użytkownik
+    }, 5000); // 5000 ms = 5 sekund
+  });
         function updateDate() {
         let today = new Date();
         let formattedDate = today.toLocaleDateString("pl-PL");
